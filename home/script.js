@@ -7,7 +7,7 @@ console.log(IP);
 
             var latitude ="";
             var longitude ="";
-
+// -------------------------------------------------------------------------------------------------------------------------------------------------
 // 'https://ipinfo.io/${}/geo';
         const apiUrl = `https://api.ipgeolocation.io/ipgeo?apiKey=0419b14c5ada4212a91b453d842d2627&ip=${IP}` ;
         console.log(apiUrl);
@@ -29,6 +29,7 @@ console.log(IP);
         });
 
 var time_Zone ;
+// -------------------------------------------------------------------------------------------------------------------------------------------------
 function findCode(data){
         console.log(data.zipcode);
         //given TimeZone ;
@@ -38,9 +39,9 @@ function findCode(data){
         findPostals(data.zipcode) ;
         fillData(data);
 }
-
+// -------------------------------------------------------------------------------------------------------------------------------------------------
 function findPostals(pincode){
-    pincode = 415401 ;
+    // pincode = 415401 ;
     const url = `https://api.postalpincode.in/pincode/${pincode}` ;
 
     fetch(url)
@@ -60,7 +61,7 @@ function findPostals(pincode){
         showpost(postArr);
     })
 }
-
+// -------------------------------------------------------------------------------------------------------------------------------------------------
 function LatandLong(){
             // var x = document.getElementById("demo");
         console.log("inside lat and log");
@@ -96,6 +97,7 @@ function LatandLong(){
 
             locationBox.appendChild(map);
 }
+// -------------------------------------------------------------------------------------------------------------------------------------------------
 function showpost(data){
         let postsContainer = document.getElementsByClassName("postals")[0] ;
 
@@ -124,6 +126,7 @@ function showpost(data){
 
 
 }
+// -------------------------------------------------------------------------------------------------------------------------------------------------
 // fillData() ;
 function fillData(data){
 
@@ -167,6 +170,7 @@ document.getElementById("Filter").addEventListener('click',(e)=>{
     console.log("click");
     e.preventDefault();
 })
+// -------------------------------------------------------------------------------------------------------------------------------------------------
 function filterData(){
 
     let filter_str = document.getElementById("Filter") ;
@@ -187,3 +191,4 @@ function filterData(){
     console.log(temp) ;
     showpost(temp) ;
 }
+// -------------------------------------------------------------------------------------------------------------------------------------------------
