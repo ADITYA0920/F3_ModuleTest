@@ -10,6 +10,7 @@ body{
     align-items: center;
     background: url(bg7.jpg);
     background-repeat: no-repeat;
+    image-st;
     
     background-size: 100%;
 }
@@ -156,6 +157,7 @@ body{
     }
     .pbox{
         width: 400px;
-        height: 400px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 }
