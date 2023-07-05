@@ -9,7 +9,8 @@ console.log(IP);
             var longitude ="";
 // -------------------------------------------------------------------------------------------------------------------------------------------------
 // 'https://ipinfo.io/${}/geo';
-        const apiUrl = `https://api.ipgeolocation.io/ipgeo?apiKey=0419b14c5ada4212a91b453d842d2627&ip=${IP}` ;
+        // const apiUrl = `https://api.ipgeolocation.io/ipgeo?apiKey=0419b14c5ada4212a91b453d842d2627&ip=${IP}` ;
+        const apiUrl = `https://ipinfo.io/${IP}?token=a65aa5704d8782`
         console.log(apiUrl);
         // const dynamicData = IP;
         
@@ -31,12 +32,14 @@ console.log(IP);
 var time_Zone ;
 // -------------------------------------------------------------------------------------------------------------------------------------------------
 function findCode(data){
-        console.log(data.zipcode);
+        // console.log(data.zipcode);
+         console.log(data.postal) ;
         //given TimeZone ;
         let chicago_datetime_str = new Date().toLocaleString("en-US", { timeZone: "America/Chicago" });
         time_Zone = chicago_datetime_str ;
         console.log(chicago_datetime_str);
-        findPostals(data.zipcode) ;
+        // findPostals(data.zipcode) ;
+        findPostals(data.postal) ;
         fillData(data);
 }
 // -------------------------------------------------------------------------------------------------------------------------------------------------
@@ -54,8 +57,6 @@ function findPostals(pincode){
         console.log(mess) ;
         let postArr = data[0].PostOffice ;
         postalData = postArr ;
-
-        
 
 
         showpost(postArr);
@@ -146,10 +147,10 @@ function fillData(data){
     u_longitude.innerHTML = u_longitude.innerText +  "   "  +longitude ;
 
     u_city.innerHTML = u_city.innerText + "   "  +data.city ;
-    u_region.innerHTML = u_region.innerText +  "   "  +data.state_prov ;
+    u_region.innerHTML = u_region.innerText +  "   "  +data.region ;
 
-    u_oraganization.innerHTML = u_oraganization.innerText +  "   "  +data.organization ;
-    u_hostName.innerHTML = u_hostName.innerText +  "   "  +data.time_zone.name ;
+    u_oraganization.innerHTML = u_oraganization.innerText +  "   "  +data.org ;
+    u_hostName.innerHTML = u_hostName.innerText +  "   "  +data.timezone ;
 // ---------------------------------------------------------------------------------------------------------------?
 //middle data 
   
@@ -161,10 +162,11 @@ let u_message = document.getElementById("message")
 let time = time_Zone.split(" ");
 u_timezone.innerHTML = u_timezone.innerHTML + "  " +time[1] ;
 u_dateAndTime.innerHTML = u_dateAndTime.innerText + " "+ time[0] ;
-u_pincode.innerHTML = u_pincode.innerText + "  " +data.zipcode ;
+u_pincode.innerHTML = u_pincode.innerText + "  " +data.postal ;
 console.log(mess) ;
 //added data manually 
 u_message.innerHTML = u_message.innerText + "   " + "Number of pincode(s) found:3";
+// u_message.innerHTML = u_message.innerText + "   " + postalData.Message;
 }
 document.getElementById("Filter").addEventListener('click',(e)=>{
     console.log("click");
